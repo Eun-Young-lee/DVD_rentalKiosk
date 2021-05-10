@@ -38,7 +38,7 @@ public class KioskPage extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
       //  jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_s.png"))); // NOI18N
-               jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\logo_s.png"));
+               jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\logo_s.png"));
 
 
         javax.swing.GroupLayout topPanLayout = new javax.swing.GroupLayout(topPan);
@@ -65,7 +65,7 @@ public class KioskPage extends javax.swing.JFrame {
 
         middleLa1.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         middleLa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        middleLa1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\free.png"));
+        middleLa1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\free.png"));
        
         middleLa3.setFont(new java.awt.Font("Segoe Print", 1, 16)); // NOI18N
         middleLa3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -77,7 +77,7 @@ public class KioskPage extends javax.swing.JFrame {
 
         middleLa4.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         middleLa4.setForeground(new java.awt.Color(255, 0, 0));
-        middleLa4.setText("FREEMOVIE");
+        middleLa4.setText("FREE123");
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 16)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

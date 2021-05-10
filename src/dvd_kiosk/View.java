@@ -7,42 +7,44 @@ import javax.swing.*;
 import dvd_kiosk.MovieList;
 import java.awt.Component;
 import java.text.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class View extends javax.swing.JFrame {
-File file = new File("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\orderDB.txt"); 
+File file = new File("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\orderDB.txt"); 
+File file2 = new File("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\cardDB.txt"); 
+Calendar cal = Calendar.getInstance(); 
+SimpleDateFormat s = new SimpleDateFormat("EEE, d MMM yyyy");
 emailCon confirm = new emailCon();
 
     public View() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("PAYMENT");        
-         }
+        this.setTitle("PAYMENT");              
+         } 
+       
     
-    void createFolder() {
-        if(!file.exists()){
-            file.mkdirs();
-        }
-    }
-      
-    void readFile() {
-    	try {
-    	FileReader fr = new FileReader(file);
-    	System.out.println("file exists");
-   
-    	FileWriter fw = new FileWriter(file);
-    	System.out.println("File created");
-    	
-    	} catch (Exception e) {
-    		e.getStackTrace();
-    	}
+    void showRentalDate() {      
+        cal.setTime(new Date());        
+        confirm.rentalTf.setText("Rental date is "+ s.format(cal.getTime()));
+                
+        String selectedDay=addDaysBox.getSelectedItem().toString();
+        int num = Integer.parseInt(selectedDay);
+        cal.add(Calendar.DATE, num+7);
+        confirm.returnTf.setText("Return date is " + s.format(cal.getTime()));       
+        
+             try {              
+             FileWriter fw= new FileWriter(file, true); 
+             BufferedWriter bw = new BufferedWriter( fw );             
+             bw.write("\r\n Return Date: "+ s.format(cal.getTime()));         
+             bw.newLine();
+             bw.flush();
+             } catch (IOException ex) {
+               Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+             }
     }
     
-    void showDate() {
-        Date d = new Date();
-        SimpleDateFormat s = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");
-        confirm.dateTf.setText(s.format(d));
-    }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -56,7 +58,7 @@ emailCon confirm = new emailCon();
         dayTotalTf = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        daysBox = new javax.swing.JComboBox<>();
+        addDaysBox = new javax.swing.JComboBox<>();
         cardpanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -92,7 +94,7 @@ emailCon confirm = new emailCon();
         daysTf.setBorder(null);
         pane1.add(daysTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 103, 80, 35));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\logo3.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\logo3.png")); // NOI18N
         pane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 0, 73, 56));
 
         dayTotalTf.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -110,19 +112,18 @@ emailCon confirm = new emailCon();
         jLabel6.setPreferredSize(new java.awt.Dimension(29, 20));
         pane1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 103, 52, 35));
 
-        daysBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        daysBox.addActionListener(new java.awt.event.ActionListener() {
+        addDaysBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        addDaysBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daysBoxActionPerformed(evt);
+                addDaysBoxActionPerformed(evt);
             }
         });
-        pane1.add(daysBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 108, 47, 28));
+        pane1.add(addDaysBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 108, 47, 28));
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\cardi.png")); // NOI18N
 
         cardTf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cardTf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -264,7 +265,7 @@ emailCon confirm = new emailCon();
     }//GEN-LAST:event_clickBtnActionPerformed
 
     private void days() {
-         String selectedDay=daysBox.getSelectedItem().toString();
+         String selectedDay=addDaysBox.getSelectedItem().toString();
          Double selectedDays = Double.parseDouble(selectedDay);
          double price = 1.50;
          double total = 0;
@@ -282,22 +283,21 @@ emailCon confirm = new emailCon();
      } catch (IOException ex) {
       ex.printStackTrace();
     }          
-    }
-    
-    private void daysBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daysBoxActionPerformed
+    }   
+
+    private void addDaysBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDaysBoxActionPerformed
          days();          
          double subTotal=0;
          subTotal = Double.parseDouble(String.valueOf(MovieList.totalTf.getText()))+Double.parseDouble(String.valueOf(daysTf.getText()));
          dayTotalTf.setText(" € " + String.valueOf(subTotal));
-    }//GEN-LAST:event_daysBoxActionPerformed
-
-   
+    }//GEN-LAST:event_addDaysBoxActionPerformed
+  
       
     private void checkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnActionPerformed
             String cardNo=cardTf.getText();   
             String pinNo=pinTf.getText();  
-            ImageIcon icon1 = new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\paid.png");
-            ImageIcon icon2 = new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\thanks.png");
+            ImageIcon icon1 = new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\paid.png");
+            ImageIcon icon2 = new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\thanks.png");
     
            if ((cardNo == null) || (cardNo.length() <13 ) ||  (cardNo.length() >16 )) {
                JOptionPane.showMessageDialog(null, "This card number is invaild","Oops", JOptionPane.ERROR_MESSAGE);
@@ -309,12 +309,28 @@ emailCon confirm = new emailCon();
                    {
                        int response = JOptionPane.showConfirmDialog(this, "Payment Successful!\nWould you like a receipt?","THANK YOU", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, icon1); 
                        if(response == JOptionPane.YES_OPTION){
-                           confirm.totalTf.setText( String.valueOf(dayTotalTf.getText()));
+                           confirm.totalTf.setText(String.valueOf(dayTotalTf.getText()));
                            String totalcost = confirm.totalTf.getText();
                            confirm.orderTa.append(totalcost) ;  
-                           confirm.setVisible(true);                        
+                           confirm.setVisible(true);   
                            orderData();
-                           showDate(); 
+                           showRentalDate();     
+//                           showReturnDate();
+                           
+                     try {
+                             
+                             FileWriter fw = new FileWriter(file, true);                                 
+                              fw.write("\r\n Card no: "+cardNo);    
+                              fw.close();                             
+                                
+                             FileWriter fw2 = new FileWriter(file2, true);
+                             fw2.write("\r\n Card no: "+cardNo);
+                             fw2.close();           
+           
+                                  } catch (IOException ex) {
+                               Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                         
                            } else {
                            JOptionPane.showMessageDialog(null, "Order Completed ", "See You Soon",JOptionPane.DEFAULT_OPTION, icon2);
                           }
@@ -333,13 +349,13 @@ emailCon confirm = new emailCon();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddRentLa1;
+    public static javax.swing.JComboBox<String> addDaysBox;
     private javax.swing.JLabel addRentLa2;
     private javax.swing.JTextField cardTf;
     private javax.swing.JPanel cardpanel;
     private javax.swing.JButton checkBtn;
     private javax.swing.JButton clickBtn;
     protected static javax.swing.JTextField dayTotalTf;
-    private javax.swing.JComboBox<String> daysBox;
     private javax.swing.JTextField daysTf;
     private javax.swing.JLabel fistla;
     private javax.swing.JLabel jLabel1;

@@ -14,6 +14,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -24,8 +25,9 @@ public class emailCon extends javax.swing.JFrame {
   
     public emailCon() {
         initComponents();
-        dateTf.setBackground (new Color (0,0,0,1));    
-        totalTf.setBackground (new Color (0,0,0,50));
+        rentalTf.setBackground (new Color (0,0,0,1));   
+        returnTf.setBackground (new Color (0,0,0,1));
+        totalTf.setBackground (new Color (0,0,0,1));
        
         jScrollPane.setOpaque(false);
         jScrollPane.getViewport().setOpaque(false);
@@ -33,42 +35,41 @@ public class emailCon extends javax.swing.JFrame {
         jScrollPane.setViewportBorder(null);       
         
         orderTa.setBorder(null);
-        orderTa.setBackground(new Color (0,0,0,0));    
-        orderTa.setText((orderTa.getText()+"                                 Receipt    \n"));
-        orderTa.setText((orderTa.getText()+" ******************************************** \n"));
-     
+        orderTa.setBackground(new Color (0,0,0,0));  
+        orderTa.setText((orderTa.getText()+"                            Receipt         \n"));
+        orderTa.setText((orderTa.getText()+" *********************************************************** \n"));
          }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        toTf = new javax.swing.JTextField();
+        toLabel = new javax.swing.JLabel();
+        toEmailTf = new javax.swing.JTextField();
         sendBtn = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        fromLab = new javax.swing.JLabel();
         jScrollPane = new javax.swing.JScrollPane();
         orderTa = new javax.swing.JTextArea();
-        dateTf = new javax.swing.JTextField();
+        rentalTf = new javax.swing.JTextField();
         totalTf = new javax.swing.JTextField();
+        returnTf = new javax.swing.JTextField();
         totalLa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(400, 400));
+        setPreferredSize(new java.awt.Dimension(400, 450));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel1.setText("From");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 40, 30));
+        toLabel.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        toLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        toLabel.setText("To");
+        getContentPane().add(toLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 40, 30));
 
-        jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("To");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 40, 30));
-
-        toTf.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        toTf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(toTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 200, 30));
+        toEmailTf.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        toEmailTf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        toEmailTf.setText("enter email");
+        toEmailTf.requestFocus();
+        getContentPane().add(toEmailTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 190, 30));
 
         sendBtn.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         sendBtn.setText("SEND");
@@ -77,12 +78,13 @@ public class emailCon extends javax.swing.JFrame {
                 sendBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(sendBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, 30));
+        getContentPane().add(sendBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, 30));
 
-        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel3.setText("order@Xtra-vision.com");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 230, 30));
+        fromLab.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        fromLab.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        fromLab.setText("From  order@Xtra-vision.com");
+        fromLab.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        getContentPane().add(fromLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 240, -1));
 
         jScrollPane.setOpaque(false);
 
@@ -93,18 +95,30 @@ public class emailCon extends javax.swing.JFrame {
         orderTa.setSelectionColor(new java.awt.Color(255, 255, 255));
         jScrollPane.setViewportView(orderTa);
 
-        getContentPane().add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 340, 210));
+        getContentPane().add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 340, 260));
 
-        dateTf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(dateTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 320, -1));
+        rentalTf.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        rentalTf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        rentalTf.setText("Rental Date: ");
+        rentalTf.setBorder(null);
+        getContentPane().add(rentalTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 340, 20));
 
+        totalTf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         totalTf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(totalTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 170, -1));
+        getContentPane().add(totalTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 170, 30));
+
+        returnTf.setBackground(new java.awt.Color(240, 240, 240));
+        returnTf.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        returnTf.setForeground(new java.awt.Color(0, 0, 153));
+        returnTf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        returnTf.setText("Return Date: ");
+        returnTf.setBorder(null);
+        getContentPane().add(returnTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 340, 20));
 
         totalLa.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         totalLa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalLa.setText("TOTAL PRICE");
-        getContentPane().add(totalLa, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 280, 90, 20));
+        getContentPane().add(totalLa, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 310, 120, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,9 +127,13 @@ public class emailCon extends javax.swing.JFrame {
         final String username = "poply2@gmail.com";
         final String password = "Lg108829";
         String fromEmail = "order@Xtra-vision.com";
-        String toEmail =toTf.getText() ;
+        
+        String toEmail =toEmailTf.getText() ;
         String textContents=orderTa.getText();
-			
+        String date1 = rentalTf.getText();
+        String date2 = returnTf.getText();
+        String totalPrice=totalTf.getText();
+           			
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
@@ -132,20 +150,29 @@ public class emailCon extends javax.swing.JFrame {
             try {
                 msg.setFrom(new InternetAddress(fromEmail));
                 msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-                msg.setSubject("Xtra-Vision CONFIRMATION");
-                msg.setContent("ORDER DETAILS","text/plain");
+                msg.setSubject("Xtra-Vision Confirmation");                
 				
                //Text body part 
                 Multipart emailContent = new MimeMultipart();
-                MimeBodyPart textBodyPart = new MimeBodyPart();
-                textBodyPart.setText("ORDER DETAIL");
-				
-                //Attach body parts
-                MimeBodyPart bodyPart = new MimeBodyPart();                
-                bodyPart.setText(textContents);
-                emailContent.addBodyPart(textBodyPart);
-                emailContent.addBodyPart(bodyPart);
-				
+                MimeBodyPart textMainPart = new MimeBodyPart();
+                textMainPart.setText("*****ORDER DETAIL**********\r\n");
+             				
+                //Attach body parts               
+               MimeBodyPart bodyPart1 = new MimeBodyPart(); 
+               MimeBodyPart bodyPart2 = new MimeBodyPart();  
+               MimeBodyPart bodyPart3 = new MimeBodyPart(); 
+               MimeBodyPart  bodyPart4 = new MimeBodyPart(); 
+               emailContent.addBodyPart(textMainPart);
+                
+                bodyPart1.setText(date1+"\r\n");
+                bodyPart2.setText(date2);
+                bodyPart3.setText(textContents);   
+                bodyPart4.setText("-----------------------------------------------------\r\n");
+                bodyPart4.setText("Total Cost: " + totalPrice);
+                emailContent.addBodyPart(bodyPart1);
+                emailContent.addBodyPart(bodyPart2);
+                emailContent.addBodyPart(bodyPart3);
+                emailContent.addBodyPart(bodyPart4);		
                 //Attach multipart to message
                 msg.setContent(emailContent);				
                 Transport.send(msg);
@@ -156,6 +183,8 @@ public class emailCon extends javax.swing.JFrame {
                     }
              
                 if (toEmail.length() >0 && toEmail.contains("@") && toEmail.endsWith(".com")) {
+                    ImageIcon ic = new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\emailSend.png");
+                     JOptionPane.showMessageDialog(null,"Email sent", "OK",JOptionPane.DEFAULT_OPTION, ic);
                     } else {
                     JOptionPane.showMessageDialog(null,"Email address is invaild\nTry again", "Oops", JOptionPane.ERROR_MESSAGE);
                 }     
@@ -197,14 +226,14 @@ public class emailCon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField dateTf;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel fromLab;
     private javax.swing.JScrollPane jScrollPane;
     public static javax.swing.JTextArea orderTa;
+    public static javax.swing.JTextField rentalTf;
+    public static javax.swing.JTextField returnTf;
     private javax.swing.JButton sendBtn;
-    private javax.swing.JTextField toTf;
+    private javax.swing.JTextField toEmailTf;
+    private javax.swing.JLabel toLabel;
     private javax.swing.JLabel totalLa;
     public static javax.swing.JTextField totalTf;
     // End of variables declaration//GEN-END:variables

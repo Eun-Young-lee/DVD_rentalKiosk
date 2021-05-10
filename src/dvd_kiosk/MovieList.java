@@ -12,8 +12,8 @@ public class MovieList extends javax.swing.JFrame {
     private DefaultTableModel model;
     int count=1;
     Double price =2.99;  
-    File file= new File("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\orderDB.txt");
-        
+    File file= new File("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\orderDB.txt");
+  
        public MovieList() {
         initComponents();   
         this.setLocationRelativeTo(null);
@@ -21,6 +21,12 @@ public class MovieList extends javax.swing.JFrame {
         btnAction();   
         getSum();  
          }  
+       
+       void createFolder() {
+        if(!file.exists()){
+            file.mkdirs();
+        }
+    }
        
        public DefaultTableModel getModel(){
            return model;
@@ -97,12 +103,12 @@ public class MovieList extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 435));
+        setPreferredSize(new java.awt.Dimension(600, 550));
 
         topLabel.setFont(new java.awt.Font("Segoe Print", 1, 18)); 
         topLabel.setForeground(new java.awt.Color(255, 102, 0));
         topLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        topLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\logo3.png"));
+        topLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\logo3.png"));
         topLabel.setText(" Choose your movie");
 
         javax.swing.GroupLayout logoPaneLayout = new javax.swing.GroupLayout(logoPane);
@@ -129,7 +135,7 @@ public class MovieList extends javax.swing.JFrame {
         topPane.setPreferredSize(new java.awt.Dimension(500, 200));
 
         topBT1.setFont(new java.awt.Font("Segoe Print", 1, 10)); 
-        topBT1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top10.jpg")); 
+        topBT1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top10.jpg")); 
         topBT1.setText("PARASITE");
         topBT1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         topBT1.setName(""); 
@@ -137,21 +143,21 @@ public class MovieList extends javax.swing.JFrame {
         topBT1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         topBT2.setFont(new java.awt.Font("Segoe Print", 1, 10)); 
-        topBT2.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top3.jpg")); 
+        topBT2.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top3.jpg")); 
         topBT2.setText("1917");
         topBT2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         topBT2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         topBT2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         topBT3.setFont(new java.awt.Font("Segoe Print", 1, 10)); 
-        topBT3.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top2.jpg")); 
+        topBT3.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top2.jpg")); 
         topBT3.setText("LEGEND");
         topBT3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         topBT3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         topBT3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         topBT4.setFont(new java.awt.Font("Segoe Print", 1, 10)); 
-        topBT4.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top9.jpg")); // NOI18N
+        topBT4.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top9.jpg")); // NOI18N
         topBT4.setText("LIFE");
         topBT4.setToolTipText("");
         topBT4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -160,7 +166,7 @@ public class MovieList extends javax.swing.JFrame {
         topBT4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         topBT5.setFont(new java.awt.Font("Segoe Print", 1, 10)); 
-        topBT5.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top6.jpg"));
+        topBT5.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top6.jpg"));
         topBT5.setText("THE HELP");
         topBT5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         topBT5.setName(""); 
@@ -168,7 +174,7 @@ public class MovieList extends javax.swing.JFrame {
         topBT5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         topBT7.setFont(new java.awt.Font("Segoe Print", 1, 10)); 
-        topBT7.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top5.jpg")); // NOI18N
+        topBT7.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top5.jpg")); // NOI18N
         topBT7.setText("ROOM");
         topBT7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         topBT7.setName(""); 
@@ -176,7 +182,7 @@ public class MovieList extends javax.swing.JFrame {
         topBT7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         topBT6.setFont(new java.awt.Font("Segoe Print", 1, 10)); 
-        topBT6.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top7.jpg")); 
+        topBT6.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top7.jpg")); 
         topBT6.setText("FIGHT CLUB");
         topBT6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         topBT6.setName(""); 
@@ -185,7 +191,7 @@ public class MovieList extends javax.swing.JFrame {
 
 
         topBT8.setFont(new java.awt.Font("Segoe Print", 1, 8)); 
-        topBT8.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top4.jpg")); // NOI18N
+        topBT8.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\top4.jpg")); // NOI18N
         topBT8.setText("THE TURNING");
         topBT8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         topBT8.setName(""); 
@@ -422,13 +428,9 @@ public class MovieList extends javax.swing.JFrame {
 
         table.setFont(new java.awt.Font("Segoe Print", 0, 11)); 
         table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Movie Title     ", "No. ", "Price "
-            }
-        ) {
+            new Object [][] {  },
+            new String [] { "Movie Title     ", "No. ", "Price " }  )
+        {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
             };
@@ -563,28 +565,23 @@ public class MovieList extends javax.swing.JFrame {
      FileWriter fw = new FileWriter(file.getAbsoluteFile());
      BufferedWriter bw = new BufferedWriter(fw);
   
-     fw.append("Movie Title ");
-     fw.append(",  "); 
-     fw.append(" No" );
-     fw.append(", "); 
-     fw.append(" PRICE") ;
-     fw.append("\n");
+fw.append("\n                                                       \n ");
+     fw.append("Movie Title , No,  PRICE");
+     fw.append("\n--------------------------------------------------------\n");
      
      for (int i=0; i<table.getRowCount(); i++) {
      for( int j=0; j<table.getColumnCount(); j++) { 
-         bw.write (table.getModel().getValueAt(i, j )+ "        ");                
-         
+         bw.write (table.getModel().getValueAt(i, j )+ "        ");       
      }
          bw.newLine();
-     }
+     }   
      bw.close();
      fw.close(); 
      }      catch (Exception e) {
        e.printStackTrace();
  }
  }
- 
- 
+  
 
  private void totalBtnActionPerformed(java.awt.event.ActionEvent evt)  {
     getSum();
@@ -625,7 +622,7 @@ public class MovieList extends javax.swing.JFrame {
     private javax.swing.JButton payBtn;
     private javax.swing.JButton romBtn1;
     private javax.swing.JPanel romPane;
-    private javax.swing.JTable table;
+    public static javax.swing.JTable table;
     private javax.swing.JButton topBT1;
     private javax.swing.JButton topBT2;
     private javax.swing.JButton topBT3;

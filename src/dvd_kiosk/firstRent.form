@@ -43,7 +43,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\HP\Documents\NetBeansProjects\DVD_Kiosk\src\img\logo_s.png"/>
+              <Image iconType="2" name="C:\Users\HP\3D Objects\NetBeansProjects\DVD_Kiosk\src\img\logo_s.png"/>
             </Property>
           </Properties>
           <Constraints>

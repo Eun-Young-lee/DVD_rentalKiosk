@@ -6,7 +6,8 @@ import java.util.Scanner;
 import javax.swing.*;
 
 public class firstRent extends javax.swing.JFrame {
-File file = new File("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\memberDB.txt"); 
+File file1 = new File("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\cardDB.txt"); 
+File file = new File("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\orderDB.txt"); 
 
     public firstRent() {
         initComponents();
@@ -32,7 +33,7 @@ File file = new File("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\mem
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoLa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoLa.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\src\\img\\logo_s.png")); // NOI18N
+        logoLa.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\src\\img\\logo_s.png")); // NOI18N
         jPanel1.add(logoLa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 416, 73));
 
         mainpane.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -123,7 +124,7 @@ File file = new File("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\mem
 
     private void voucherBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voucherBtnActionPerformed
         String codeInput = voucherTf.getText();
-        String freeCode = "FREE123";
+        String freeCode = "free123";
         if (codeInput.equalsIgnoreCase(freeCode) )  {
             JOptionPane.showMessageDialog(null,"Code applied\nEnter your Card number");
         }else {
@@ -137,11 +138,11 @@ File file = new File("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\mem
         int pass = 0;   
     
         try {
-            FileReader filereader = new FileReader(file);		
-            BufferedReader buffReader = new BufferedReader(filereader);
+            FileReader filereader = new FileReader(file1);		
+            BufferedReader br = new BufferedReader(filereader);
             String line = "";      
             
-                while ((line = buffReader.readLine())!=null) {
+                while ((line = br.readLine())!=null) {
                     System.out.println(line.indexOf(cardInput));
                     int cardNum = line.indexOf(cardInput);
                     if(cardNum !=-1) {
@@ -152,9 +153,13 @@ File file = new File("C:\\Users\\HP\\Documents\\NetBeansProjects\\DVD_Kiosk\\mem
          
         if (pass == 0) { 
             JOptionPane.showMessageDialog(null,"Code was successfully applied");   
-            FileWriter writer = new FileWriter(file, true);
-            writer.write(cardInput+"\t");
-            writer.flush();
+            FileWriter fw1 = new FileWriter(file1, true);
+            fw1.write("\r\n"+cardInput);
+            fw1.close();
+            
+            FileWriter fw2 = new FileWriter(file, true);
+            fw2.write("Card no: "+cardInput+"\r\n");
+            fw2.close();           
            }
         } catch(IOException e) {
             e.printStackTrace();
