@@ -315,7 +315,6 @@ emailCon confirm = new emailCon();
                            confirm.setVisible(true);   
                            orderData();
                            showRentalDate();     
-//                           showReturnDate();
                            
                      try {
                              

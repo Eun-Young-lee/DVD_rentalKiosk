@@ -2,11 +2,10 @@
                                                        
  Movie Title , No,  PRICE
 --------------------------------------------------------
-PARASITE        1        2.99        
-1917        1        2.99        
 LEGEND        1        2.99        
-LIFE        1        2.99        
+ROOM        1        2.99        
+THE TURNING        1        2.99        
 
- Return Date: Sat, 15 May 2021
+ Return Date: 19/05/2021
 
- Card no: 8965896589658
+ Card no: 874587458745874

@@ -130,16 +130,14 @@ public class ReturnDvd extends javax.swing.JFrame {
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
      File file= new File("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\orderDB.txt");
      Scanner sc = new Scanner(System.in);
-     String dvdCode = sc.nextLine();
-     
-     int pass = 0;       
+     String dvdCode = sc.nextLine();                
         
             try {
-            FileReader filereader = new FileReader(file);		
-            BufferedReader buffReader = new BufferedReader(filereader);
+            FileReader fr = new FileReader(file);		
+            BufferedReader br = new BufferedReader(fr);
             String line = "";      
             
-                while ((line = buffReader.readLine())!=null)  {
+                while ((line = br.readLine())!=null)  {
                     System.out.println(line.indexOf(dvdCode));
                     int dvdNum = line.indexOf(dvdCode);
                     if(dvdNum !=-1) {
@@ -149,10 +147,8 @@ public class ReturnDvd extends javax.swing.JFrame {
                 }
                 }  catch(IOException e) {
          e.printStackTrace();
-        }                 
-                  
-        if (pass == 0) { 
-                 
+        }                                   
+                     
             try {                 
                 Calendar today=Calendar.getInstance();
                 today.setTime(new Date());
@@ -176,7 +172,7 @@ public class ReturnDvd extends javax.swing.JFrame {
             } catch (ParseException ex) {
                Logger.getLogger(ReturnDvd.class.getName()).log(Level.SEVERE, null, ex);
          }     
-     }        
+            
 
     }//GEN-LAST:event_confirmBtnActionPerformed
              
