@@ -18,9 +18,9 @@ public class searchTest {
           System.out.println("Title: ");
           String titleInput = sc.next();
           
-          String sql= "SELECT * FROM movielist WHERE Title=  " + titleInput ;
+          String sql= "SELECT * FROM movielist WHERE Title= " + titleInput ;
           ResultSet rs= state.executeQuery(sql); 
-                       
+                          
           if(rs.next())
               System.out.println("available");
           else
