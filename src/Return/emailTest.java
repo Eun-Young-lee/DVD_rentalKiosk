@@ -1,4 +1,4 @@
-package dvd_kiosk;
+package Return;
 
 import java.io.IOException;
 import java.util.Properties;

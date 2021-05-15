@@ -2,10 +2,9 @@
                                                        
  Movie Title , No,  PRICE
 --------------------------------------------------------
-LEGEND        1        2.99        
 ROOM        1        2.99        
-THE TURNING        1        2.99        
+LEGEND        1        2.99        
 
- Return Date: 19/05/2021
+ Return Date: Sat, 22 May 2021
 
- Card no: 874587458745874
+ Card no: 123645874589223

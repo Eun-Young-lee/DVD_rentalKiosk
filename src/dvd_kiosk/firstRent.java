@@ -152,7 +152,7 @@ File file = new File("C:\\Users\\HP\\3D Objects\\NetBeansProjects\\DVD_Kiosk\\or
                 }
          
         if (pass == 0) { 
-            JOptionPane.showMessageDialog(null,"Code was successfully applied");   
+            JOptionPane.showMessageDialog(null,"Code was successfully applied\n DVD in progress");   
             FileWriter fw1 = new FileWriter(file1, true);
             fw1.write("\r\n"+cardInput);
             fw1.close();

@@ -125,7 +125,7 @@ public class emailCon extends javax.swing.JFrame {
 
     private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
         final String username = "poply2@gmail.com";
-        final String password = "Lg108829";
+        final String password = "0000";
         String fromEmail = "order@Xtra-vision.com";
         
         String toEmail =toEmailTf.getText() ;

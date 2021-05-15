@@ -22,15 +22,17 @@ public class MovieList extends javax.swing.JFrame {
         getSum();  
          }  
        
+       public DefaultTableModel getModel(){
+           return model;
+       }      
+       
        void createFolder() {
         if(!file.exists()){
             file.mkdirs();
         }
     }
        
-       public DefaultTableModel getModel(){
-           return model;
-       }
+      
    
    public void getSum () {
    price = 2.99;
@@ -41,7 +43,7 @@ public class MovieList extends javax.swing.JFrame {
    double total = 0;
    total = Double.parseDouble(String.valueOf(answer));
 	if (total >11.96) { 
-	         JOptionPane.showMessageDialog(null,"You can rent only 4 DVDs at once or\nFirst rent is limited to 2 DVDs\nPlease cancel item","SORRY", JOptionPane.ERROR_MESSAGE); 
+	         JOptionPane.showMessageDialog(null,"You can rent only 4 discs at once or\nFirst rent is limited to 2 discs\nPlease cancel item","SORRY", JOptionPane.ERROR_MESSAGE); 
 	totalTf.setText(" ");
         }    return;
    }                     
@@ -437,11 +439,9 @@ public class MovieList extends javax.swing.JFrame {
             boolean[] canEdit = new boolean [] {
                 false, false, false
             };
-
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }

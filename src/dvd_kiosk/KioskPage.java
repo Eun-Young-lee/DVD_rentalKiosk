@@ -1,6 +1,7 @@
 
 package dvd_kiosk;
 
+import Return.ReturnDisc;
 
 public class KioskPage extends javax.swing.JFrame {
 
@@ -209,6 +210,8 @@ public class KioskPage extends javax.swing.JFrame {
 
     private void returnBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
        this.dispose();
+       ReturnDisc  returnDisc = new ReturnDisc();
+       returnDisc.setVisible(true);
     }                                         
 
     /**
