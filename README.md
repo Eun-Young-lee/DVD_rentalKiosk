@@ -7,3 +7,5 @@
 <img width="50%" src="https://user-images.githubusercontent.com/72259680/118373187-6990d080-b5ad-11eb-89ba-5ee4f52f9252.gif">
 ### 4. Send confirmatin by email
 <img width="60%" src="https://user-images.githubusercontent.com/72259680/118373435-b2955480-b5ae-11eb-80bc-5766f73b85e6.gif">
+### 5. Email confirmation
+<img width="80%" src="https://user-images.githubusercontent.com/72259680/118373528-567f0000-b5af-11eb-9933-2fdbc5c10b65.jpg">
