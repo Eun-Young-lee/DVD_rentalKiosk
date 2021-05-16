@@ -10,7 +10,7 @@
 
 ### 4. First Transaction
 <p><img width="60%" src="https://user-images.githubusercontent.com/72259680/118373884-fc7f3a00-b5b0-11eb-9fb6-1a5efb97c9a4.gif" >
-<img width="25%" src="https://user-images.githubusercontent.com/72259680/118384397-9e2c7880-b5fd-11eb-99f0-f7079ea20cda.jpg"></p>
+<img width="25%" src="https://user-images.githubusercontent.com/72259680/118387004-7ea04a80-b613-11eb-88bf-5ea0490c645d.jpg"></p>
 
 ### 5. Send confirmatin by email
 <img width="60%" src="https://user-images.githubusercontent.com/72259680/118373435-b2955480-b5ae-11eb-80bc-5766f73b85e6.gif">
